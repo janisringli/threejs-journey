@@ -33,8 +33,8 @@ mesh.scale.set(2, 0.5, 0.5);
 //180° = Math.PI
 //90° = Math.PI / 2
 // mesh.rotation.reorder("YXZ");
-// mesh.rotation.y = Math.PI * 0.25;
-// mesh.rotation.x = Math.PI * 0.25;
+mesh.rotation.y = Math.PI * 0.25;
+mesh.rotation.x = Math.PI * 0.25;
 
 // Axes helper
 const axesHelper = new THREE.AxesHelper(2);
@@ -53,7 +53,11 @@ const sizes = {
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 3;
+//Lookat
+camera.lookAt(mesh.position);
+
 scene.add(camera);
+
 console.log(mesh.position.distanceTo(camera.position));
 /**
  * Renderer
